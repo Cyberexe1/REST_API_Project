@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import { format } from 'date-fns';
+import LandingPage from './components/LandingPage';
 import './App.css';
+import './styles/LandingPage.css';
 
-function App() {
+function DiaryApp() {
   const [entries, setEntries] = useState([]);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -203,7 +206,7 @@ function App() {
   };
 
   return (
-    <div className={`app-container ${darkMode ? 'dark-mode' : ''}`}>
+    <div className={`app ${darkMode ? 'dark-mode' : ''}`}>
       <header>
         <div className="header-content">
           <h1>My Personal Diary</h1>
@@ -428,6 +431,17 @@ function App() {
         </section>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/diary" element={<DiaryApp />} />
+      </Routes>
+    </Router>
   );
 }
 
