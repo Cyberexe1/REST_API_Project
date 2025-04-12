@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/LandingPage.css';
+import diaryLogo from '../assets/diary-logo.png';
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -20,8 +21,11 @@ const LandingPage = () => {
       <header className="landing-header">
         <nav className="landing-nav">
           <div className="logo-container">
-            <div className="logo">MyDiary</div>
-            <span className="logo-tagline">Your Personal Journey</span>
+            <div className="logo">
+              <img src={diaryLogo} alt="Diary Logo" className="logo-image" />
+              {/* <span>MyDiary</span> */}
+            </div>
+            {/* <span className="logo-tagline">Your Personal Journey</span> */}
           </div>
           
           <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
@@ -63,14 +67,12 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-        <div className="hero-image">
-          <div className="image-placeholder">
-            <div className="diary-preview">
-              <div className="preview-content">
-                <h3>Today's Entry</h3>
-                <p>Write your thoughts here...</p>
-              </div>
-            </div>
+        <div className="book-container">
+          <div className="book">
+            <img
+              alt="diary"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNdsGDLTnqqqyVUppXkBea-J8hsEK-65Z9wA&s"
+            />
           </div>
         </div>
       </main>
